@@ -2,6 +2,8 @@ import random
 import json
 import asyncio
 
+clas = ["uchiha", "uzumaki", "hyuuga", "aburame", "inuzuka"]
+
 class Ninja:
     def __init__(self, name):
         self.name = name
@@ -10,15 +12,15 @@ class Ninja:
         self.jutsus = []
         self.level = 1
         self.xp = 0
+        self.cla = random.choice(clas)
+
     
-    def to_dict(self, user_id: str):
+    def to_dict(self):
         return {
-            user_id: {
                 "name": self.name,
+                "cla": self.cla,
                 "hp": self.hp,
                 "chakra": self.chakra,
                 "jutsus": self.jutsus,
                 "level": self.level,
-                "xp": self.xp
-            }
-        }
+                "xp": self.xp}
